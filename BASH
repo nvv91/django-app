@@ -1,3 +1,11 @@
 django-admin startproject menu_project
 cd menu_project
 django-admin startapp menu
+
+
+
+
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
