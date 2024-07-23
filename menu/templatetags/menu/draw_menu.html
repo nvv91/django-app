@@ -1,0 +1,16 @@
+<ul>
+    {% for node in menu_tree %}
+        <li class="{% if node.item.get_url == current_url %}active{% endif %}">
+            <a href="{{ node.item.get_url }}">{{ node.item.name }}</a>
+            {% if node.children %}
+                <ul {% if not node.expanded %}style="display: none;"{% endif %}>
+                    {% for child in node.children %}
+                        <li class="{% if child.item.get_url == current_url %}active{% endif %}">
+                            <a href="{{ child.item.get_url }}">{{ child.item.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
